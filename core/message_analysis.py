@@ -185,41 +185,33 @@ def functionLogic(message):
 
     # Tìm kiếm thông tin từ wikipedia
     if 'là gì' in message:
-        print('tìm kiếm là gì')
         if TextTool.cauXungHo2(message):
             return None
         rem = message.split(' ')
         if len(rem) >= 3: # rem phải từ 3 từ trở lên
-            print('tìm kiếm là gì')
             message = message.replace('là gì', '')
             result = Function.wikipedia(message)
             return result
     
-    print('check')
     if 'là ai' in message:
-        print('tìm kiếm là ai')
         if TextTool.cauXungHo(message):
             return None
         rem = message.split(' ')
         if len(rem) >= 3: # rem phải từ 3 từ trở lên
-            print('tìm kiếm là ai')
             message = message.replace('là ai', '')
             result = Function.wikipedia(message)
             return result
     
-    if 'khái niệm' in message:
-        print('tìm kiếm khái niệm')
+    if message.startswith('khái niệm') or message.startswith('định nghĩa'):
         rem = message.split(' ')
         if len(rem) >= 3: # rem phải từ 3 từ trở lên
-            print('tìm kiếm khái niệm')
             result = Function.wikipedia(message)
-            print(result)
             return result
     
-    if 'tiểu sử' in message:
+    if message.startswith('tiểu sử'):
         rem = message.split(' ')
         if len(rem) >= 3: # rem phải từ 3 từ trở lên
-            result = Function.wikipedia(message)
+            result = Function.wikipedia(message.replace('tiểu sử', ' '))
             return result
 
     # tìm câu trả lời nhanh từ google

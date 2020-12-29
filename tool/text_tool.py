@@ -1,3 +1,5 @@
+from urllib.parse import unquote
+
 from dao import line_file
 from core.alice_info import Alice
 
@@ -206,3 +208,6 @@ def chuanHoaTenFile(nameFile):
 	temp = nameFile.replace('-', ' ')
 	st = temp.replace('_', ' ')
 	return st
+
+def decode(text):
+    return unquote(text, encoding='utf-8')
