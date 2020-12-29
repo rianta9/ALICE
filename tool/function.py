@@ -10,6 +10,8 @@ import urllib.parse as urlparse
 import wikipedia as wiki
 import json
 from pywikihow import WikiHow as wikihow
+import goslate
+
 
 from dao import line_file
 from tool import text_tool as TextTool
@@ -510,5 +512,7 @@ def sendMail(mailto, subject, content):
 sl: ngôn ngữ cần dịch
 tl: ngôn ngữ trả về
 '''
-def translate(text, sl, tl):
-    return 'Chức năng dịch ngôn ngữ đang được xây dựng!'
+def translateG(text, sl, tl):
+    translator = goslate.Goslate()
+    result = translator.translate(text, tl)
+    return result

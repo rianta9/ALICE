@@ -8,3 +8,7 @@ webdriver-manager
 wikipedia
 youtube-search
 numpy
+googletrans
+requests
+bs4
+goslate

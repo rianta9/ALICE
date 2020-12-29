@@ -176,11 +176,11 @@ def functionLogic(message):
 
     if message.startswith('dịch từ'):
         message = message.replace('dịch từ ', '')
-        return Function.translate(message, 'vi', 'en')
+        return Function.translateG(message, 'en', 'vi')
     
     if message.startswith('dịch câu'):
         message = message.replace('dịch câu ', '')
-        return Function.translate(message, 'vi', 'en')
+        return Function.translateG(message, 'en', 'vi')
     
 
     # Tìm kiếm thông tin từ wikipedia
