@@ -11,7 +11,7 @@ import wikipedia as wiki
 import json
 from pywikihow import WikiHow as wikihow
 import goslate
-
+from googletrans import Translator
 
 from dao import line_file
 from tool import text_tool as TextTool
@@ -513,6 +513,15 @@ sl: ngôn ngữ cần dịch
 tl: ngôn ngữ trả về
 '''
 def translateG(text, sl, tl):
+    result = 'Hiện không thể sử dụng chức năng dịch!'
+    # try:
+    #     translator = goslate.Goslate()
+    #     result = translator.translate(text, tl)
+    # except Exception as e:
+    #     print(e)
+    #     translator = Translator()
+    #     result = translator.translate(text, dest = tl).text
     translator = goslate.Goslate()
     result = translator.translate(text, tl)
+    
     return result
