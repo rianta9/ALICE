@@ -2,6 +2,7 @@ from tool import text_tool as TextTool
 from tool import function as Function
 from core import master_info as Master
 from core import alice_info as Alice
+from speak import speak
 
 '''
 Kiểm tra tin nhắn có phải là tin nhắn yêu cầu chức năng không.
@@ -173,6 +174,19 @@ def functionLogic(message):
     
     if message == 'mở mail' or message == 'mở email':
         return Function.openMail()
+
+    if message == 'gửi mail':
+        speak.speak('Master muốn gửi mail đến ai ạ?')
+        mailto = speak.get_text()
+        speak.speak('Master muốn đặt tiêu đề là gì ạ?')
+        title = speak.get_text()
+        speak.speak('Master muốn gửi với nội dung thế nào ạ?')
+        content = speak.get_text()
+        return Function.sendMail(mailto, title, content)
+
+    if message.startswith('mở '):
+        result = Function.openBookMark(message.replace('mở ', ''))
+        return result
 
     if message.startswith('dịch từ'):
         message = message.replace('dịch từ ', '')
