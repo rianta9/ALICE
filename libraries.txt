@@ -8,7 +8,8 @@ webdriver-manager
 wikipedia
 youtube-search
 numpy
-pywikihow
 googletrans
 requests
 bs4
+goslate
+pywikihow
