@@ -7,7 +7,9 @@ import os
 import subprocess
 import glob
 import urllib.parse as urlparse
-import wikipedia
+import wikipedia as wiki
+import json
+from pywikihow import WikiHow as wikihow
 
 from dao import line_file
 from tool import text_tool as TextTool
@@ -17,8 +19,7 @@ import time
 #KHỞI TẠO
 chrome_options = Options()
 chrome_options.add_argument("--headless")
-wikipedia.set_lang('vi')
-language = 'vi'
+wiki.set_lang('vi')
 
 
 def chromeDriverInit():
@@ -37,12 +38,11 @@ def random(range):
 Trả về kết quả tìm kiếm thông tin từ wikipedia. Nếu không tìm thấy kết quả trả về null.
 '''
 def wikipedia(text):
-    wikipedia.set_lang('vi')
     try:
-        contents = wikipedia.summary(text).split('\n')
+        contents = wiki.summary(text).split('\n')
         return contents[0].split(".")[0]
     except:
-        return None
+        return 'Alice không định nghĩa được từ ' + text
     return None
 
 '''
@@ -92,7 +92,17 @@ def linkContent(link):
 Cách làm, cách thực hiện một thứ gì đó. Tìm kiếm thông tin từ wikihow. Nếu không tìm thấy kết quả trả về null.
 '''
 def howTo(text):
-    return 'chức năng wikihow đang được xây dựng!'
+    listResult = wikihow.search(text, lang='vn')
+    result = ''
+    dem = 1
+    for how_to in listResult:
+        result += TextTool.decode(how_to.title) + '\n'
+        result += how_to.intro + '\n'
+        for s in how_to.steps:
+            result += str(dem) + '. ' + s.summary + '\n'
+            dem = dem+1
+        break
+    return result
 
 '''
 Lấy danh sách các bài hát trong một thư mục.
