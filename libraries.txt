@@ -12,3 +12,4 @@ googletrans
 requests
 bs4
 goslate
+pywikihow
