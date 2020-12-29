@@ -513,15 +513,11 @@ sl: ngôn ngữ cần dịch
 tl: ngôn ngữ trả về
 '''
 def translateG(text, sl, tl):
-    result = 'Hiện không thể sử dụng chức năng dịch!'
-    # try:
-    #     translator = goslate.Goslate()
-    #     result = translator.translate(text, tl)
-    # except Exception as e:
-    #     print(e)
-    #     translator = Translator()
-    #     result = translator.translate(text, dest = tl).text
-    translator = goslate.Goslate()
-    result = translator.translate(text, tl)
+    result = ''
+    try:
+        translator = goslate.Goslate()
+        result = translator.translate(text, tl)
+    except Exception as e:
+        result = 'Hiện không thể sử dụng chức năng dịch!'
     
     return result
