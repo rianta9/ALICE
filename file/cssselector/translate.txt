@@ -1,0 +1,8 @@
+div.text-info > strong.phr|span.gt-text
+-------------------Information-------------------
+Cấu trúc: resultElement|replaceResult
+resultElement: kết quả dịch
+replaceResult: kết quả thay thế từ google translate(trang ggtrans không crawl data được)
+url = "https://vi.glosbe.com/"+sl+"/"+tl+"/"+text;
+sl: source language
+tl: translated language
