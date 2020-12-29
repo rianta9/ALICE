@@ -9,6 +9,7 @@ import glob
 import urllib.parse as urlparse
 import wikipedia as wiki
 import json
+import smtplib
 from pywikihow import WikiHow as wikihow
 import goslate
 from googletrans import Translator
@@ -491,8 +492,26 @@ def openMap():
     return 'Mở chức năng open map'
 
 def openMail():
+    openLink('https://mail.google.com/mail/u/0/#inbox')
     return 'Mở chức năng open mail'
 
+'''
+Mở một bookmark được cài sẵn
+file danh sách bookmark nằm trong file/adress/bookmark.txt
+'''
+def openBookMark(title):
+    listBookmark = line_file.getBookmarkInAddress('bookmark')
+    if listBookmark is None:
+        return None
+    for bookmark in listBookmark:
+        if bookmark['title'].lower() == title:
+            openLink(bookmark['link'])
+            return 'Mở ' + bookmark['title']
+    return None
+
+'''
+Mở link bằng trình duyệt mặc định
+'''
 def openLink(link):
     wb.open(link, new=2)
     return 'Đã mở link: {}'.format(link)
@@ -506,7 +525,17 @@ def openFileType(pathname):
 
 
 def sendMail(mailto, subject, content):
-    return 'Chức năng gửi mail đang được xây dựng!'
+    try:
+        mail = smtplib.SMTP('smtp.gmail.com', 587)
+        mail.ehlo()
+        mail.starttls()
+        mail.login(Constant.MAIL_ADDRESS, Constant.MAIL_PASS) # Username + Password
+        mail.sendmail(Constant.MAIL_ADDRESS, 
+                        mailto, content.encode('utf-8')) # mailto là địa chỉ người nhận
+        mail.close()
+        return 'Đã gửi mail có nội dung ' + content + ' đến ' + mailto
+    except:
+        return 'Chức năng gửi mail tạm thời không hoạt động!'
 
 '''
 sl: ngôn ngữ cần dịch
