@@ -10,3 +10,5 @@ youtube-search
 numpy
 pywikihow
 googletrans
+requests
+bs4
