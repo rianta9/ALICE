@@ -8,3 +8,5 @@ webdriver-manager
 wikipedia
 youtube-search
 numpy
+pywikihow
+googletrans
