@@ -22,6 +22,7 @@ import time
 #KHỞI TẠO
 chrome_options = Options()
 chrome_options.add_argument("--headless")
+chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
 wiki.set_lang('vi')
 
 
