@@ -28,7 +28,21 @@ class ListLogicData:
         message = TextTool.getOrigin(TextTool.standardMessageForTraining(message))
         message = message.strip()
         similarMessages = WordDao.similarMessages(message)
-
+        if search_type == 'contain_order':
+            for logicReply in self.data:
+                # kiểm tra message có giống với logic của logicReply.keyword không
+                
+                if logicReply.checkLogicContain(message.lower()):
+                    #print('Compare: ' + '[' + logicReply.keywords.lower() + ']' + ':[' + message.lower() + ']')
+                    #print('Matched!')
+                    return logicReply
+                
+                # kiểm tra các câu tương đồng của message
+                for i in similarMessages:
+                    if logicReply.checkLogicContain(i.lower()):
+                        #print('Compare: ' + '[' + logicReply.keywords.lower() + ']' + ':[' + message.lower() + ']')
+                        #print('Matched!')
+                        return logicReply
         if search_type == 'contain':
             for logicReply in self.data:
                 # kiểm tra message có giống với logic của logicReply.keyword không
