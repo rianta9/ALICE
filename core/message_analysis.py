@@ -21,6 +21,9 @@ def functionLogic(message):
             result = Function.getResultGG(message)
             return result
     
+    if 'mấy giờ' in message:
+        return 'Bây giờ là:' + Function.getTime()
+
     if message.startswith('thông tin của'):
         for alias in Master.alias:
             if alias in message:
@@ -235,6 +238,3 @@ def functionLogic(message):
     return None
 
 
-
-def baseLogic(message):
-    return None

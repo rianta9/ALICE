@@ -9,7 +9,7 @@ Methods:
 
 '''
 class LogicReplyDao:
-    listFile = ['contain', 'startwith', 'endwith']
+    listFile = ['contain_order','contain', 'startwith', 'endwith']
     def __init__(self):
         self.listData = [] #list[ListLogicData]
 

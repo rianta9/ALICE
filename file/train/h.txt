@@ -1,4 +1,5 @@
 hi|hello|Chào|chào master|Hi, Master|Chào Master ^^|Chào master
+hey alice|Alice đây ạ|Dạ alice nghe ạ|Dạ
 haha|Master đang vui vẻ ^^|Master đang cười alice phải không|Là sao nhỉ?|Master cười gì vậy ạ?|Master đang vui ạ?|alice có nghe câu:"cười ko đúng chỗ thì lấy rổ lượm răng"|Cười cái qq|alice làm master cười ^^|Hì hì.
 hâh|Master đang cười phải không|Master đang cười ^^|alice làm master cười ^^|hì hì
 hôm nay có chuyện buồn|buồn chuyện gì ạ, tâm sự alice nghe nà|Sao vậy ạ?|Master có muốn bật một bản nhạc nào đó không ạ?|Chuyện gì buồn kể cho alice nghe đi|Tội master quá, nếu có BOSS ở đây thì hay biết mấy|Chuyện tình cảm hay công việc ạ?|Chuyện tình cảm phải không ạ?|Buồn không tốt

@@ -13,6 +13,7 @@ import smtplib
 from pywikihow import WikiHow as wikihow
 import goslate
 from googletrans import Translator
+import datetime
 
 from dao import line_file
 from tool import text_tool as TextTool
@@ -36,6 +37,11 @@ def chromeDriverInit():
 
 def random(range):
     result = rd.randint(range)
+    return result
+
+
+def getTime():
+    result = datetime.datetime.now().strftime("%I giờ %M phút %p")
     return result
 
 '''
