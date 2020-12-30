@@ -41,7 +41,7 @@ def random(range):
 
 
 def getTime():
-    result = datetime.datetime.now().strftime("%I giờ %M phút %p")
+    result = datetime.datetime.now().strftime("%I:%M %p")
     return result
 
 '''

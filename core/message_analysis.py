@@ -22,7 +22,7 @@ def functionLogic(message):
             return result
     
     if 'mấy giờ' in message:
-        return 'Bây giờ là:' + Function.getTime()
+        return 'Bây giờ là ' + Function.getTime()
 
     if message.startswith('thông tin của'):
         for alias in Master.alias:
