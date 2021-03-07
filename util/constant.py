@@ -135,4 +135,4 @@ class Constant:
     MUSIC_PATH = 'E:/Musics'
     CHROME_DRIVER = r'C:\Users\hoang\.wdm\drivers\chromedriver\win32\87.0.4280.88\chromedriver.exe'
     MAIL_ADDRESS = 'frozenkizz12@gmail.com'
-    MAIL_PASS = 'nghia123'
+    MAIL_PASS = 'abcxyz'
